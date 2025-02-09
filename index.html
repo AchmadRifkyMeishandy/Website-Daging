@@ -1,51 +1,124 @@
-// Toggle menu mobile
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.toggle('active');
-  });
-  
-  // Mendukung navigasi keyboard pada menu toggle
-  document.querySelector('.menu-toggle').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      document.querySelector('.nav-links').classList.toggle('active');
-    }
-  });
-  
-  // Smooth scroll untuk navigasi internal
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-  
-  // Tutup menu mobile saat klik di luar header
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.header')) {
-      document.querySelector('.nav-links').classList.remove('active');
-    }
-  });
-  
-  // Mengatur state aktif pada navigasi mobile saat scroll
-  window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.mobile-nav a');
-    
-    sections.forEach(section => {
-      const top = window.scrollY;
-      const offset = section.offsetTop - 100;
-      const height = section.offsetHeight;
-      const id = section.getAttribute('id');
-  
-      if (top >= offset && top < offset + height) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href').includes(id)) {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  });
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko Daging Zainuddin</title>
+  <!-- Hubungkan file CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Link eksternal Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header class="header" role="banner">
+    <a href="#" class="logo">
+      <i class="fas fa-paw" aria-hidden="true"></i>Toko Daging
+      Zainuddin
+    </a>
+    <nav class="nav-links" role="navigation" aria-label="Main Navigation">
+      <a href="#home">Beranda</a>
+      <a href="#products">Produk</a>
+      <a href="#about">Tentang</a>
+      <a href="#contact">Kontak</a>
+    </nav>
+    <div class="menu-toggle" aria-label="Menu Toggle" tabindex="0">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </div>
+  </header>
+
+  <section class="hero" id="home" role="main">
+    <h1>Daging Segar Premium</h1>
+    <p>Berkualitas • Halal • Terjangkau</p>
+  </section>
+
+  <section class="products" id="products">
+    <h2>Pilihan Daging</h2>
+    <div class="product-grid">
+      <article class="product-card" tabindex="0">
+        <img src="img/produk1.jpeg" 
+             alt="Daging Sapi" class="product-image">
+        <h3>Daging Sapi Paha Depan</h3>
+        <p>Rp120.000/kg</p>
+        <!-- Tombol "Pesan Sekarang" diarahkan ke WhatsApp -->
+        <button onclick="window.location.href='https://wa.me/6285719497465'" aria-label="Pesan Daging Sapi melalui WhatsApp">
+          Pesan Sekarang
+        </button>
+      </article>
+      <!-- Tambahkan produk lainnya sesuai kebutuhan -->
+      <article class="product-card" tabindex="0">
+        <img src="img/pahabelakang.jpeg" 
+             alt="Daging Sapi" class="product-image">
+        <h3>Daging Sapi Paha Belakang</h3>
+        <p>Rp120.000/kg</p>
+        <!-- Tombol "Pesan Sekarang" diarahkan ke WhatsApp -->
+        <button onclick="window.location.href='https://wa.me/6285719497465'" aria-label="Pesan Daging Sapi melalui WhatsApp">
+          Pesan Sekarang
+        </button>
+      </article>
+
+      <article class="product-card" tabindex="0">
+        <img src="img/sandunglamur.jpeg" 
+             alt="Daging Sapi" class="product-image">
+        <h3>Sandung Lamur</h3>
+        <p>Rp110.000/kg</p>
+        <!-- Tombol "Pesan Sekarang" diarahkan ke WhatsApp -->
+        <button onclick="window.location.href='https://wa.me/6285719497465'" aria-label="Pesan Daging Sapi melalui WhatsApp">
+          Pesan Sekarang
+        </button>
+      </article>
+
+      <article class="product-card" tabindex="0">
+        <img src="img/tetelan2.jpg" 
+             alt="Daging Sapi" class="product-image">
+        <h3>Tetelan Sapi</h3>
+        <p>Rp110.000/kg</p>
+
+        <!-- Tombol "Pesan Sekarang" diarahkan ke WhatsApp -->
+        <button onclick="window.location.href='https://wa.me/6285719497465'" aria-label="Pesan Daging Sapi melalui WhatsApp">
+          Pesan Sekarang
+        </button>
+      </article>
+
+      <article class="product-card" tabindex="0">
+        <img src="img/ati3.jpeg" 
+             alt="Daging Sapi" class="product-image">
+        <h3>Ati Sapi</h3>
+        <p>Rp65.000/kg</p>
+
+        <!-- Tombol "Pesan Sekarang" diarahkan ke WhatsApp -->
+        <button onclick="window.location.href='https://wa.me/6285719497465'" aria-label="Pesan Daging Sapi melalui WhatsApp">
+          Pesan Sekarang
+        </button>
+      </article>
+    </div>
+  </section>
+
+  <!-- Bagian Tentang -->
+  <section class="about" id="about">
+    <h2>Tentang Kami</h2>
+    <p> Selamat datang di Daging Zainuddin. Kami menyediakan daging segar premium yang berkualitas, halal, dan terjangkau.
+        Kami berkomitmen untuk memberikan produk terbaik serta layanan profesional kepada pelanggan kami. Kami telah 
+        melakukan penjualan daging selama bertahun tahun dan sudah terbukti, kami juga 
+        melayani pemesanan hajatan, untuk bulan ramadhan, dan lain lain.</p>
+  </section>
+
+  <!-- Bagian Kontak -->
+  <section class="contact" id="contact">
+    <h2>Kontak Kami</h2>
+    <p>Hubungi kami melalui WhatsApp untuk pemesanan dan pertanyaan lebih lanjut atau bisa menghubungi nomor: 0857-1949-7465</p>
+    <p>
+      <a href="https://wa.me/6285719497465" target="_blank" rel="noopener noreferrer">0857-1949-7465</a>
+    </p>
+  </section>
+
+  <nav class="mobile-nav" role="navigation" aria-label="Mobile Navigation">
+    <a href="#home"><i class="fas fa-home" aria-hidden="true"></i></a>
+    <a href="#products"><i class="fas fa-shopping-basket" aria-hidden="true"></i></a>
+    <a href="#about"><i class="fas fa-info-circle" aria-hidden="true"></i></a>
+    <a href="#contact"><i class="fas fa-phone" aria-hidden="true"></i></a>
+  </nav>
+
+  <!-- Hubungkan file JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
