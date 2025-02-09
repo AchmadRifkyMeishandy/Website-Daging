@@ -1,0 +1,254 @@
+:root {
+    --primary: #5e1e1e; /* Warna primer untuk kontras yang lebih baik */
+    --secondary: #91917e;
+    --dark: #3d3939;
+    --light: #FFFFFF;
+    --background: #5c1e1e;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: var(--background);
+    line-height: 1.6;
+    color: var(--dark);
+  }
+  
+  .header {
+    background: var(--primary);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    color: var(--light);
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .menu-toggle {
+    color: var(--light);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .nav-links a:focus,
+  .nav-links a:hover {
+    background: var(--secondary);
+    color: var(--dark);
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  .hero {
+    padding: 120px 5% 60px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('https://images.unsplash.com/photo-1588166524941-09bf764ad3fe') center/cover no-repeat;
+    color: var(--light);
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  .products {
+    padding: 2rem 5%;
+  }
+  
+  .products h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--light);
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .product-card {
+    background: var(--light);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .product-card:hover,
+  .product-card:focus-within {
+    transform: translateY(-5px);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  button {
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover,
+  button:focus {
+    background: var(--dark);
+    outline: none;
+  }
+  
+  /* Styling untuk bagian Tentang dan Kontak */
+  .about, .contact {
+    padding: 2rem 5%;
+    background: var(--light);
+    margin-top: 1rem;
+  }
+  
+  .about h2, .contact h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  
+  .about p, .contact p {
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .contact a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .contact a:hover,
+  .contact a:focus {
+    color: var(--secondary);
+    outline: none;
+  }
+  
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--primary);
+    display: none;
+    justify-content: space-around;
+    padding: 1rem;
+    z-index: 1000;
+  }
+  
+  .mobile-nav a {
+    color: var(--light);
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+  
+  .mobile-nav a:focus,
+  .mobile-nav a:hover {
+    background: var(--secondary);
+    color: var(--dark);
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: block;
+    }
+  
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--primary);
+      flex-direction: column;
+      padding: 1rem;
+      text-align: center;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .mobile-nav {
+      display: flex;
+    }
+  
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    .product-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .product-image {
+      height: 120px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .logo {
+      font-size: 1.2rem;
+    }
+  
+    .hero {
+      padding: 100px 5% 40px;
+    }
+  }
+  
