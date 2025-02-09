@@ -249,7 +249,9 @@
     }
   
     .hero {
-      padding: 100px 5% 40px;
-    }
-  }
+      padding: 100px 3% 40px; /* Perbaikan karakter spasi */
+    }
+}
+
+
   
