@@ -118,10 +118,11 @@
   
   .product-image {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
+    height: auto; /* Menyesuaikan tinggi agar tidak terpotong */
+    max-height: 200px; /* Batasi tinggi maksimal agar tetap proporsional */
+    object-fit: contain; /* Mencegah gambar terpotong */
     border-radius: 8px;
-  }
+}
   
   button {
     background: var(--primary);
